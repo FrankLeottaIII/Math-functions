@@ -131,108 +131,488 @@ def add_string_ascii_word(a,b):
     numberleftover = len(a) - len(b)
     # if numberleftover <= 0:
     #     numberleftover = 
-    print("this is numberleftover")
-    print(numberleftover)
+    # print("this is numberleftover")
+    # print(numberleftover)
+
+
+
     #if numberleftover is less than or equal to 0, pass
-    if numberleftover <= 0:
-        pass
-    else:
+
+    # NEW PART OF CODE WORKING ON
+    if numberleftover < 0:
+        a.reverse()
+        b.reverse()
+        for i in range(abs(numberleftover)):
+            c.append(b[i])
+        # print("this is c")
+        # print(c)
+        c.reverse()
+        # print("this is c after reverse")
+        # print(c)
+        b.reverse() 
+        a = list(a)  #copied from
+        b = list(b)
+        #for every element in a, convert to ascii 
+        for i in range(len(a)):
+            a[i] = ord(a[i])
+        #for every element in b, convert to ascii
+        for i in range(len(b)):
+            b[i] = ord(b[i])
+            # print(i)
+        new_a = []
+        #add elements together and place in new_a
+        for a, b in zip(a, b):
+            new_a.append(a + b)
+
+
+        
+            # new_a.append(a[i] + b[i]) 
+        # print("this is new_a after adding a and b together")
+        # print(new_a)
+        #for each element
+        #  if  i <= 65 subtract 122 from i
+        # i >=122 subtract 122 until i =< eless than 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+            else:
+                while new_a[i] > 122:
+                    new_a[i] = new_a[i] - 122
+        
+        # print("this is new_a")
+        # print(new_a)
+        #now to loop around so that all elements are between 65 and 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+        # print("this is new_a")
+        # print(new_a)
+
+        #absolute value to get rid of negatives
+        for i in range(len(new_a)):
+            new_a[i] = abs(new_a[i])
+
+
+        # if element is 91, add 1 to it
+        for i in range(len(new_a)):
+            if new_a[i] == 91: #if element is 91, add 1 to it
+                new_a[i] = new_a[i] + 1
+        for i in range(len(new_a)):
+            if new_a[i] == 92:
+                new_a[i] = new_a[i] + 2
+        for i in range(len(new_a)):
+            if new_a[i] == 93:
+                new_a[i] = new_a[i] + 3
+        for i in range(len(new_a)):
+            if new_a[i] == 94:
+                new_a[i] = new_a[i] + 4
+        for i in range(len(new_a)):
+            if new_a[i] == 96:
+                new_a[i] = new_a[i] + 5
+
+        # print("this is new_a")
+        # print(new_a)
+        #this will ensure each element is between 65 and 122, a letter of the alphabet
+        #convert each element back to a letter
+        for i in range(len(new_a)):
+            new_a[i] = chr(new_a[i])
+        
+        # print("this is new_a")
+        # print(new_a)
+        #convert new_a to a string
+        new_a = ''.join(new_a)
+        # print("this is c")
+        # print(c)
+        c = ''.join(c)
+        new_a = new_a + c
+        test ="test"
+        new_a = new_a + test
+
+        #return new_a
+        return new_a
+
+
+
+
+
+
+
+    elif numberleftover >= 0:
         #transfer every element  in a up to the lens(numberleftover) to c
         for i in range(abs(numberleftover)):
             c.append(a[i])
-    print("this is c")
-    print(c)
-    c.reverse()
-    # print("this is c after reverse")
-    # print(c)
-    a.reverse()
-    # print ("this is a")
-    # print(a)
-    a = list(a)
-    b = list(b)
-    #for every element in a, convert to ascii 
-    for i in range(len(a)):
-        a[i] = ord(a[i])
-    #for every element in b, convert to ascii
-    for i in range(len(b)):
-        b[i] = ord(b[i])
-        # print(i)
-    new_a = []
-    #add elements together and place in new_a
-    for a, b in zip(a, b):
-        new_a.append(a + b)
+        # print("this is c")
+        # print(c)
+        c.reverse()
+        # print("this is c after reverse")
+        # print(c)
+        a.reverse() 
+        # print ("this is a")
+        # print(a)
+        a = list(a)
+        b = list(b)
+        #for every element in a, convert to ascii 
+        for i in range(len(a)):
+            a[i] = ord(a[i])
+        #for every element in b, convert to ascii
+        for i in range(len(b)):
+            b[i] = ord(b[i])
+            # print(i)
+        new_a = []
+        #add elements together and place in new_a
+        for a, b in zip(a, b):
+            new_a.append(a + b)
 
 
-    
-        # new_a.append(a[i] + b[i]) 
-    # print("this is new_a after adding a and b together")
-    # print(new_a)
-    #for each element
-    #  if  i <= 65 subtract 122 from i
-    # i >=122 subtract 122 until i =< eless than 122
-    for i in range(len(new_a)):
-        if new_a[i] <= 65:
-            new_a[i] = new_a[i] - 122
-        else:
-            while new_a[i] > 122:
+        
+            # new_a.append(a[i] + b[i]) 
+        # print("this is new_a after adding a and b together")
+        # print(new_a)
+        #for each element
+        #  if  i <= 65 subtract 122 from i
+        # i >=122 subtract 122 until i =< eless than 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
                 new_a[i] = new_a[i] - 122
-    
-    print("this is new_a")
-    print(new_a)
-    #now to loop around so that all elements are between 65 and 122
-    for i in range(len(new_a)):
-        if new_a[i] <= 65:
-            new_a[i] = new_a[i] - 122
-    print("this is new_a")
-    print(new_a)
+            else:
+                while new_a[i] > 122:
+                    new_a[i] = new_a[i] - 122
+        
+        # print("this is new_a")
+        # print(new_a)
+        #now to loop around so that all elements are between 65 and 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+        # print("this is new_a")
+        # print(new_a)
 
-    #absolute value to get rid of negatives
-    for i in range(len(new_a)):
-        new_a[i] = abs(new_a[i])
+        #absolute value to get rid of negatives
+        for i in range(len(new_a)):
+            new_a[i] = abs(new_a[i])
 
 
-    # if element is 91, add 1 to it
-    for i in range(len(new_a)):
-        if new_a[i] == 91: #if element is 91, add 1 to it
-            new_a[i] = new_a[i] + 1
-    for i in range(len(new_a)):
-        if new_a[i] == 92:
-            new_a[i] = new_a[i] + 2
-    for i in range(len(new_a)):
-        if new_a[i] == 93:
-            new_a[i] = new_a[i] + 3
-    for i in range(len(new_a)):
-        if new_a[i] == 94:
-            new_a[i] = new_a[i] + 4
-    for i in range(len(new_a)):
-        if new_a[i] == 96:
-            new_a[i] = new_a[i] + 5
+        # if element is 91, add 1 to it
+        for i in range(len(new_a)):
+            if new_a[i] == 91: #if element is 91, add 1 to it
+                new_a[i] = new_a[i] + 1
+        for i in range(len(new_a)):
+            if new_a[i] == 92:
+                new_a[i] = new_a[i] + 2
+        for i in range(len(new_a)):
+            if new_a[i] == 93:
+                new_a[i] = new_a[i] + 3
+        for i in range(len(new_a)):
+            if new_a[i] == 94:
+                new_a[i] = new_a[i] + 4
+        for i in range(len(new_a)):
+            if new_a[i] == 96:
+                new_a[i] = new_a[i] + 5
 
-    print("this is new_a")
-    print(new_a)
-    #this will ensure each element is between 65 and 122, a letter of the alphabet
-    #convert each element back to a letter
-    for i in range(len(new_a)):
-        new_a[i] = chr(new_a[i])
-    
-    # print("this is new_a")
-    # print(new_a)
-    #convert new_a to a string
-    new_a = ''.join(new_a)
-    #add c to new_a
-    print("this is c")
-    print(c)
-    c = ''.join(c)
-    new_a = new_a + c
-    test ="test"
-    new_a = new_a + test
+        # print("this is new_a")
+        # print(new_a)
+        #this will ensure each element is between 65 and 122, a letter of the alphabet
+        #convert each element back to a letter
+        for i in range(len(new_a)):
+            new_a[i] = chr(new_a[i])
+        
+        # print("this is new_a")
+        # print(new_a)
+        #convert new_a to a string
+        new_a = ''.join(new_a)
+        #add c to new_a
+        # print("this is c")
+        # print(c)
+        c = ''.join(c)
+        new_a = new_a + c
+        test ="test"
+        new_a = new_a + test
 
-    #return new_a
-    return new_a
+        #return new_a
+        return new_a
 
 
 
 A = "hello how are you doing today"
-b = "I am doing well thank you for asking "
-print(" this is the result of adding two sentences together based on their ascii values. ")
+print(A)
+b = "I am doing well thank you for asking.  Who are you again? "
+print(b)
+print(" this is the result of adding two sentences together based on their ascii values.")
+
 print(add_string_ascii_word(A,b)) 
+
+#ok, now I would like to see if I can put back the spaces and punctuation
+
+def Get_memory_of_spaces(list1: list)->list:
+    """ Summery: 
+        This funtion keeps a memory of spaces in a sentence converted into a list.  
+        It uses an if statment to analyze list1 and make a list called list 2 comprised of 0 and _ in which the 0 represents a letter and the _ represents a space.  This is useful for the add_string_ascii_word function.  The list is then returned.
+
+        
+    Args:
+        list1 (list): The list to be analyzed.
+
+    Returns:
+        list2: The list that is returned.
+    """
+    list2 = []
+    for i in range(len(list1)):
+        if list1[i] == " ":
+            list2.append("_")
+        else:
+            list2.append(0)
+    return list2
+
+
+
+def add_string_ascii_sentences(a,b):
+    """Summery:
+    This function adds two sentences together based on their ascii values.  The result is then converted back to a string and returned.  This funtion also keeps the spaces and punctuation of the original sentence.  
+
+    Args:
+        a (string): The first string to be added.
+        b (string): The second string to be added.
+
+    Returns:
+        string: The sum of the two strings.
+    
+    """
+    # print ("this is a")
+    # print(a)
+    # print ("this is b")
+    # print(b)
+
+    a_count = len(a)
+    b_count = len(b)
+    a = list(a)
+    a_spaces = Get_memory_of_spaces(a)
+    print("this is a_spaces")
+    print(a_spaces)
+    b = list(b)
+    c= []
+    #reverse order of a
+    a.reverse()
+    # print ("this is a")
+    # print(a)
+    numberleftover = len(a) - len(b)
+    # if numberleftover <= 0:
+    #     numberleftover = 
+    # print("this is numberleftover")
+    # print(numberleftover)
+
+
+
+    #if numberleftover is less than or equal to 0, pass
+
+    # NEW PART OF CODE WORKING ON
+    if numberleftover < 0:
+        a.reverse()
+        b.reverse()
+        for i in range(abs(numberleftover)):
+            c.append(b[i])
+        # print("this is c")
+        # print(c)
+        c.reverse()
+        # print("this is c after reverse")
+        # print(c)
+        b.reverse() 
+        a = list(a)  #copied from
+        b = list(b)
+        #for every element in a, convert to ascii 
+        for i in range(len(a)):
+            a[i] = ord(a[i])
+        #for every element in b, convert to ascii
+        for i in range(len(b)):
+            b[i] = ord(b[i])
+            # print(i)
+        new_a = []
+        #add elements together and place in new_a
+        for a, b in zip(a, b):
+            new_a.append(a + b)
+
+
+        
+            # new_a.append(a[i] + b[i]) 
+        # print("this is new_a after adding a and b together")
+        # print(new_a)
+        #for each element
+        #  if  i <= 65 subtract 122 from i
+        # i >=122 subtract 122 until i =< eless than 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+            else:
+                while new_a[i] > 122:
+                    new_a[i] = new_a[i] - 122
+        
+        # print("this is new_a")
+        # print(new_a)
+        #now to loop around so that all elements are between 65 and 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+        # print("this is new_a")
+        # print(new_a)
+
+        #absolute value to get rid of negatives
+        for i in range(len(new_a)):
+            new_a[i] = abs(new_a[i])
+
+
+        # if element is 91, add 1 to it
+        for i in range(len(new_a)):
+            if new_a[i] == 91: #if element is 91, add 1 to it
+                new_a[i] = new_a[i] + 1
+        for i in range(len(new_a)):
+            if new_a[i] == 92:
+                new_a[i] = new_a[i] + 2
+        for i in range(len(new_a)):
+            if new_a[i] == 93:
+                new_a[i] = new_a[i] + 3
+        for i in range(len(new_a)):
+            if new_a[i] == 94:
+                new_a[i] = new_a[i] + 4
+        for i in range(len(new_a)):
+            if new_a[i] == 96:
+                new_a[i] = new_a[i] + 5
+
+        # print("this is new_a")
+        # print(new_a)
+        #this will ensure each element is between 65 and 122, a letter of the alphabet
+        #convert each element back to a letter
+        for i in range(len(new_a)):
+            new_a[i] = chr(new_a[i])
+        print("this is new_a")
+        print(new_a)
+
+                                                        # for i in range(len(new_a)):
+                                                        #     for a in a_spaces:
+                                                        #         if a == "_":
+                                                        #             a[i] = "_"
+        #convert new_a to a string
+        new_a = ''.join(new_a)
+        # print("this is c")
+        # print(c)
+        c = ''.join(c)
+        new_a = new_a + c
+        test ="test"
+        new_a = new_a + test
+
+        #return new_a
+        return new_a
+
+
+
+
+
+
+
+    elif numberleftover >= 0:
+        #transfer every element  in a up to the lens(numberleftover) to c
+        for i in range(abs(numberleftover)):
+            c.append(a[i])
+        # print("this is c")
+        # print(c)
+        c.reverse()
+        # print("this is c after reverse")
+        # print(c)
+        a.reverse() 
+        # print ("this is a")
+        # print(a)
+        a = list(a)
+        b = list(b)
+        #for every element in a, convert to ascii 
+        for i in range(len(a)):
+            a[i] = ord(a[i])
+        #for every element in b, convert to ascii
+        for i in range(len(b)):
+            b[i] = ord(b[i])
+            # print(i)
+        new_a = []
+        #add elements together and place in new_a
+        for a, b in zip(a, b):
+            new_a.append(a + b)
+
+
+        
+            # new_a.append(a[i] + b[i]) 
+        # print("this is new_a after adding a and b together")
+        # print(new_a)
+        #for each element
+        #  if  i <= 65 subtract 122 from i
+        # i >=122 subtract 122 until i =< eless than 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+            else:
+                while new_a[i] > 122:
+                    new_a[i] = new_a[i] - 122
+        
+        # print("this is new_a")
+        # print(new_a)
+        #now to loop around so that all elements are between 65 and 122
+        for i in range(len(new_a)):
+            if new_a[i] <= 65:
+                new_a[i] = new_a[i] - 122
+        # print("this is new_a")
+        # print(new_a)
+
+        #absolute value to get rid of negatives
+        for i in range(len(new_a)):
+            new_a[i] = abs(new_a[i])
+
+
+        # if element is 91, add 1 to it
+        for i in range(len(new_a)):
+            if new_a[i] == 91: #if element is 91, add 1 to it
+                new_a[i] = new_a[i] + 1
+        for i in range(len(new_a)):
+            if new_a[i] == 92:
+                new_a[i] = new_a[i] + 2
+        for i in range(len(new_a)):
+            if new_a[i] == 93:
+                new_a[i] = new_a[i] + 3
+        for i in range(len(new_a)):
+            if new_a[i] == 94:
+                new_a[i] = new_a[i] + 4
+        for i in range(len(new_a)):
+            if new_a[i] == 96:
+                new_a[i] = new_a[i] + 5
+
+        # print("this is new_a")
+        # print(new_a)
+        #this will ensure each element is between 65 and 122, a letter of the alphabet
+        #convert each element back to a letter
+        for i in range(len(new_a)):
+            new_a[i] = chr(new_a[i])
+        
+
+                                                        # for i in range(len(new_a)):
+                                                        #     for a in a_spaces:
+                                                        #         if a == "_":
+                                                        #             a[i] = "_"
+                                                        #     if i == "_":
+                                                        #         a[i] = "_"
+
+
+        # print("this is new_a")
+        # print(new_a)
+        #convert new_a to a string
+        new_a = ''.join(new_a)
+        #add c to new_a
+        # print("this is c")
+        # print(c)
+        c = ''.join(c)
+        new_a = new_a + c
+        test ="test"
+        new_a = new_a + test
+
+        #return new_a
+        return new_a
+    
+A = "hello how are you doing today"
+print(A)
+b = "I am doing well thank you for asking.  Who are you again? "
+print(b)
+print(" this is the result of adding two sentences together based on their ascii values.")
+print(add_string_ascii_sentences(A,b))
