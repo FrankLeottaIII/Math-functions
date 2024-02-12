@@ -4,6 +4,8 @@
 #Date started: 2/9/2024
 
 #Discription: This is a repository of math functions that I have written for various projects.  
+
+#left off at add_string_ascii_word, the ones tabed out
             
 
 # Please use word wrap to see the code properly.
