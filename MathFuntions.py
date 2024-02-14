@@ -40,11 +40,22 @@ def add(a,b):
         b (int): The second number to be added.
     
     Returns:
-        int: The sum of the two numbers.
+        a+b : The sum of the two numbers.
     
     """
     return a+b
 
+def subtract(a,b):
+    """Summery: 
+        subtracts a varible from b varible and return the results.  The varibles must be the same type for this funtion to work.
+        
+        Args:
+            a : The original number
+            b : what is being subtracted from a
+        
+        """
+    return a-b
+    
 
 
 ################### Creating more functions ####################
